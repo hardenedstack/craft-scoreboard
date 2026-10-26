@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hardenedstack.github.io/craft-scoreboard/sitemap.xml

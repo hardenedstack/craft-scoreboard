@@ -1,0 +1,152 @@
+<a class="skip" href="#main">Skip to results</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="18" height="4" rx="1" fill="currentColor"/><rect x="4" y="14" width="18" height="4" rx="1" fill="currentColor"/><rect x="4" y="22" width="18" height="4" rx="1" fill="currentColor"/><path class="logo-flow" d="M3 27 L13 16 L19 20 L28 8 M22 8 H28 V14" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <b>The Hardened Stack</b><span class="sep">/</span><span>Craft Scoreboard</span>
+    </a>
+    <nav aria-label="Sections">
+      <a class="hide-sm" href="#apps">Apps</a>
+      <a class="hide-sm" href="#check">Check version</a>
+      <a class="hide-sm" href="#method">Method</a>
+      <button type="button" class="btn-icon" id="theme" aria-label="Switch theme">
+        <svg class="theme-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="theme-dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="label eyebrow"><span class="dot" aria-hidden="true"></span>Lab results · updated {{UPDATED_HUMAN}}</div>
+        <h1 id="hero-title">Free Craft apps, <em>measured</em> on a real PC</h1>
+        <p class="lede">We install each version of PdfCraft, WordCraft, PhotoCraft and the rest on our lab PC, give it the same jobs as the paid app, and log <strong>every network connection</strong> it makes.</p>
+        <div class="contrast">
+          <div class="them"><div class="label">Code trackers</div><p>Count commits, releases and checksums on GitHub.</p></div>
+          <div class="us"><div class="label">This scoreboard</div><p>Runs the app: same jobs, same files, every connection logged.</p></div>
+        </div>
+        <ul class="answers" aria-label="Two answers per version">
+          <li><span class="k">01</span><span><b>Is it as good as the paid app?</b> A score on the same jobs, graded before the test.</span></li>
+          <li><span class="k">02</span><span><b>What does it connect to?</b> While you work, and after you close it.</span></li>
+        </ul>
+      </div>
+      <div class="map-wrap">
+        <div class="map-box">
+          <div class="map-frame">
+            <canvas id="map" role="img" aria-label="Lab network map. Craft apps measured at 0 connections. Adobe Acrobat Pro contacted 23 hosts while working and 7 after it was closed. Word for the web contacted 64 hosts in one editing session. The full list is in the connection log table below." aria-describedby="conn-log-summary"></canvas>
+            <div class="scan" aria-hidden="true"></div>
+            <div class="map-hud">
+              <div class="map-title">Lab network map<b>What each app connected to</b></div>
+              <div class="hud-ctl">
+              <button type="button" class="btn-icon replay" id="replay" aria-label="Replay the sequence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg></button>
+              <div class="seg" role="group" aria-label="When">
+                <button type="button" data-sc="working" aria-pressed="true">While you work</button>
+                <button type="button" data-sc="closed" aria-pressed="false">After you close it</button>
+              </div>
+              </div>
+            </div>
+            <div class="map-legend" aria-hidden="true"><span><i class="lg-q"></i>0 connections measured</span><span><i class="lg-t"></i>Measured traffic</span><span><i class="lg-c"></i>Test coming</span></div>
+          </div>
+          <div class="readout" id="readout" aria-live="polite"></div>
+        </div>
+        <p class="map-note">Lines are drawn only where our capture saw a connection. Each dot is a host. <a href="#conn-log">Every connection on the map, as a table</a>.</p>
+        <p class="map-means"><b>What this means for you:</b> {{MEANS}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps" aria-labelledby="apps-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">One card per app</div><h2 id="apps-title">The apps, version by version</h2></div>
+        <p>Every number shows the version and the date we measured it. "?" means the retest is coming.</p>
+      </div>
+      <p class="new-banner" id="new-banner" hidden></p>
+      <noscript><p class="nojs-note">The app cards, the map and the version checker need JavaScript. Every result is in the tables further down.</p></noscript>
+      <div class="apps" id="apps-list"></div>
+    </div>
+  </section>
+
+  <section id="check" aria-labelledby="check-title" class="js-only">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">Your copy</div><h2 id="check-title">Is my version behind?</h2></div>
+        <p>Pick the app and type the version you have. You'll see how far behind the newest release it is and what our tests found.</p>
+      </div>
+      <div class="checker">
+        <form id="checker" autocomplete="off">
+          <div class="field"><label for="chk-app">App</label><select id="chk-app" name="app"></select></div>
+          <div class="field"><label for="chk-ver">Your version</label><input id="chk-ver" name="version" inputmode="decimal" placeholder="0.9.0" spellcheck="false" aria-describedby="chk-hint"><span class="hint" id="chk-hint">The version is in the installer's file name, for example pdfcraft-0.9.0-windows-x64.msi.</span></div>
+          <span class="example" id="chk-example">Example filled in</span>
+        </form>
+        <div class="check-out" id="chk-out" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" aria-labelledby="results-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">Plain data</div><h2 id="results-title">All results, as a table</h2></div>
+        <p>The same numbers as the cards, for every app and version. Source: <a href="scoreboard.json">scoreboard.json</a>.</p>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <caption class="sr-only">Craft Scoreboard results by app and version</caption>
+          <thead><tr><th scope="col">App</th><th scope="col">Version</th><th scope="col">Measured</th><th scope="col">Lab</th><th scope="col">Score</th><th scope="col">While you work</th><th scope="col">After you close it</th><th scope="col">Video</th></tr></thead>
+          <tbody>{{RESULTS_ROWS}}</tbody>
+        </table>
+      </div>
+      <details id="conn-log">
+        <summary>Connection log: every host on the map ({{CONN_COUNT}} rows)</summary>
+        <p id="conn-log-summary" class="map-note">Hosts contacted by each app's own processes in our captures. Encrypted traffic: we list who was contacted and how much was sent, not what was inside.</p>
+        <div class="tbl-wrap">
+          <table>
+            <caption class="sr-only">Connection log for the lab network map</caption>
+            <thead><tr><th scope="col">App and version</th><th scope="col">When</th><th scope="col">Process</th><th scope="col">Host</th><th scope="col">Requests / data</th><th scope="col">Note</th></tr></thead>
+            <tbody>{{CONN_ROWS}}</tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="method" aria-labelledby="method-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">How we test</div><h2 id="method-title">Method</h2></div>
+        <p>{{SCOPE}}</p>
+      </div>
+      <div class="method">
+        <div>
+          <div class="label">Score</div>
+          <h3>Same jobs, rules written first</h3>
+          <p>{{RULE}}</p>
+          <div class="scale"><span class="pill pass">Pass 1</span><span class="pill partial">Partial 0.5</span><span class="pill fail">Fail 0</span></div>
+        </div>
+        <div>
+          <div class="label">Connections</div>
+          <h3>Counted per program</h3>
+          <p>{{CONN_RULE}}</p>
+          <p>Paid apps run with default settings and the account they ask for. Web apps are measured in the browser session we used for the jobs.</p>
+        </div>
+        <div>
+          <div class="label">Scope</div>
+          <h3>One version, one date</h3>
+          <p>Developers ship fixes, and Microsoft and Adobe change their services. A result says what we measured on that version, on that date, on our lab PC. It is not a verdict on any company.</p>
+          <p>Each result links to the video that shows the test.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>By <b>The Hardened Stack</b> · <a href="{{CHANNEL_URL}}" rel="noopener">YouTube</a></span>
+    <span><a href="feed.xml">New results feed (RSS)</a> · Code MIT · Data CC BY 4.0 · Updated <span class="num">{{UPDATED}}</span></span>
+  </div>
+</footer>

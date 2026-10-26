@@ -1,0 +1,885 @@
+{
+  "schema": 2,
+  "updated": "2026-10-26",
+  "site": {
+    "title": "Craft Scoreboard",
+    "url": "https://hardenedstack.github.io/craft-scoreboard/",
+    "channel": "The Hardened Stack",
+    "channel_url": "https://www.youtube.com/channel/UCg95mVk6Es290vh_YB7RZUg"
+  },
+  "scoring": {
+    "pass": 1,
+    "partial": 0.5,
+    "fail": 0,
+    "rule": "Each job is graded PASS 1, PARTIAL 0.5 or FAIL 0. The grading rules for every job are written down before the first app runs it, and both apps get the same jobs and the same files.",
+    "scope": "A result covers only the version and the date shown. A newer version can behave differently.",
+    "connections": "Connections are network connections made by the app's own processes during the test, captured on the lab PC (packet capture plus the operating system's per-program connection log)."
+  },
+  "scenarios": {
+    "working": "While you work",
+    "closed": "After you close it"
+  },
+  "apps": [
+    {
+      "id": "pdfcraft",
+      "name": "PdfCraft",
+      "kind": "craft",
+      "category": "PDF editor",
+      "compare_to": "acrobat",
+      "source_url": "https://github.com/storytold/pdfcraft",
+      "latest_seen": {
+        "version": "0.14.0",
+        "checked": "2026-10-26"
+      },
+      "tracked": [
+        {
+          "key": "scanned_redaction",
+          "label": "Redact one line on a scanned page"
+        },
+        {
+          "key": "ocr",
+          "label": "OCR word accuracy"
+        },
+        {
+          "key": "connections",
+          "label": "Connections while working"
+        }
+      ],
+      "versions": [
+        {
+          "version": "0.9.0",
+          "date": "2026-10-20",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": 9.5,
+          "of": 10,
+          "summary": "9 of 10 jobs passed. Redacting a scanned page deleted the whole page (GitHub issue #2246).",
+          "results": {
+            "scanned_redaction": {
+              "value": "Whole page went blank",
+              "grade": "fail"
+            },
+            "ocr": {
+              "value": "97.6%",
+              "grade": "pass"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "41-minute capture of all 10 jobs + Windows connection log"
+            },
+            "closed": {
+              "count": 0,
+              "how": "0 processes left running after closing"
+            }
+          },
+          "connections_detail": [],
+          "video": {
+            "id": "ELmmosIsNdI",
+            "title": "PdfCraft vs Adobe Acrobat: 10 Real PDF Jobs. It Scored 9.5/10"
+          },
+          "source": "V10 lab findings, 20 Oct 2026, sections 9-13",
+          "use_for": "Everyday PDF jobs: 9 of 10 passed, incl. OCR at 97.6% word accuracy.",
+          "not_yet_for": "Redacting scanned pages: the whole page went blank."
+        },
+        {
+          "version": "0.14.0",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": null,
+          "of": null,
+          "summary": "Retest: redacting a scanned page still deletes the whole page (same 1,297-byte file as 0.9.0; GitHub issue #2246 still open). Text redaction still works.",
+          "results": {
+            "scanned_redaction": {
+              "value": "Whole page still goes blank",
+              "grade": "fail"
+            },
+            "ocr": null,
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "Windows connection log during 11 minutes of jobs; the only connection all night was a manual Help > Check for updates (api.github.com)"
+            },
+            "closed": {
+              "count": 0,
+              "how": "0 processes left running 5 minutes after closing"
+            }
+          },
+          "connections_detail": [
+            {
+              "host": "api.github.com",
+              "owner": "GitHub",
+              "scenario": "working",
+              "process": "PdfCraft",
+              "requests": 1,
+              "note": "Only when I clicked Help > Check for updates"
+            }
+          ],
+          "use_for": "Text PDFs: redacting text still passed, and it made 0 connections.",
+          "not_yet_for": "Redacting scanned pages: the whole page still goes blank in 0.14.0.",
+          "video": null,
+          "source": "V13 lab findings, 26 Oct 2026, sections 7-8",
+          "proof": {
+            "type": "before_after",
+            "label": "Redact one line on a scanned page (0.14.0)",
+            "before": "img/pdfcraft-0.14.0-scan-redaction-before.webp",
+            "after": "img/pdfcraft-0.14.0-scan-redaction-after.webp",
+            "width": 1200,
+            "height": 675,
+            "before_caption": "Before: one line marked for redaction",
+            "after_caption": "After Apply: the whole page still went blank",
+            "source": "Lab take, 26 Oct 2026 (GitHub issue #2246 still open)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wordcraft",
+      "name": "WordCraft",
+      "kind": "craft",
+      "category": "Word processor",
+      "compare_to": "word-web",
+      "source_url": "https://github.com/storytold/wordcraft",
+      "latest_seen": {
+        "version": "0.11.0",
+        "checked": "2026-10-26"
+      },
+      "tracked": [
+        {
+          "key": "grammar",
+          "label": "Spelling + grammar (12 planted errors)"
+        },
+        {
+          "key": "round_trip",
+          "label": "40-page report round trip"
+        },
+        {
+          "key": "connections",
+          "label": "Connections while working"
+        }
+      ],
+      "versions": [
+        {
+          "version": "0.9.0",
+          "date": "2026-10-21",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": 9.5,
+          "of": 10,
+          "summary": "Tied with free Word for the web. The checker caught spelling only, no grammar.",
+          "results": {
+            "grammar": {
+              "value": "3/12, spelling only",
+              "grade": "partial"
+            },
+            "round_trip": {
+              "value": "13/13 headings, 40/40 pages",
+              "grade": "pass"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "Windows connection log during all 10 jobs: 720 events, 0 from wordcraft.exe"
+            },
+            "closed": null
+          },
+          "connections_detail": [],
+          "video": {
+            "id": "M-QbzRAQcp0",
+            "title": "WordCraft vs Free Microsoft Word: Same Score. One Uploads Files"
+          },
+          "source": "V11 lab findings, 21 Oct 2026, sections 8-9",
+          "use_for": "Everyday Word documents: invoices, a 40-page report and round trips all passed.",
+          "not_yet_for": "Grammar checks: it caught 3 of 12 planted errors, spelling only."
+        },
+        {
+          "version": "0.11.0",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": null,
+          "of": null,
+          "summary": "Retest: still 3 of 12 planted errors, spelling only, although \"Mark grammar errors as you type\" is on by default. The 40-page report round trip still passes.",
+          "results": {
+            "grammar": {
+              "value": "3/12, spelling only",
+              "grade": "partial"
+            },
+            "round_trip": {
+              "value": "13/13 structure items",
+              "grade": "pass"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "Windows connection log during 23 minutes and 3 documents; checking works offline"
+            },
+            "closed": {
+              "count": 0,
+              "how": "0 processes left running 5 minutes after closing"
+            }
+          },
+          "connections_detail": [],
+          "use_for": "Everyday Word documents, offline: the report round trip passed, 0 connections.",
+          "not_yet_for": "Grammar checks: still 3 of 12 caught, spelling only.",
+          "video": null,
+          "source": "V13 lab findings, 26 Oct 2026, sections 7-8"
+        }
+      ]
+    },
+    {
+      "id": "photocraft",
+      "name": "PhotoCraft",
+      "kind": "craft",
+      "category": "Photo editor",
+      "compare_to": "photoshop",
+      "source_url": "https://github.com/storytold/photocraft",
+      "latest_seen": {
+        "version": "0.9.0",
+        "checked": "2026-10-17"
+      },
+      "tracked": [
+        {
+          "key": "remove_background",
+          "label": "Remove a portrait background"
+        },
+        {
+          "key": "generative_fill",
+          "label": "Generative fill / AI expand"
+        },
+        {
+          "key": "connections",
+          "label": "Connections while working"
+        }
+      ],
+      "versions": [
+        {
+          "version": "0.9.0",
+          "date": "2026-10-17",
+          "status": "measured",
+          "platform": "Ubuntu lab PC",
+          "score": 7,
+          "of": 10,
+          "summary": "6 passes, 2 partials, 2 fails on 10 standard Photoshop jobs.",
+          "results": {
+            "remove_background": {
+              "value": "Lost the top of the head",
+              "grade": "fail"
+            },
+            "generative_fill": {
+              "value": "Not in the app",
+              "grade": "fail"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "16-minute packet capture + per-process trace of 11 takes"
+            },
+            "closed": null
+          },
+          "connections_detail": [],
+          "video": {
+            "id": "yradgS_aGLQ",
+            "title": "PhotoCraft vs Photoshop: 10 Real Jobs. It Scored 7/10"
+          },
+          "source": "V09 lab findings, 17 Oct 2026, sections 2 and 4",
+          "use_for": "Crops, text, Curves, masks and spot healing: all passed.",
+          "not_yet_for": "Cutting out people (it lost the top of the head) or AI fill (not in the app)."
+        }
+      ]
+    },
+    {
+      "id": "gridcraft",
+      "name": "GridCraft",
+      "kind": "craft",
+      "category": "Spreadsheet",
+      "compare_to": "excel-web",
+      "source_url": "https://github.com/storytold/gridcraft",
+      "latest_seen": {
+        "version": "0.12.1",
+        "checked": "2026-10-26"
+      },
+      "tracked": [
+        {
+          "key": "jobs",
+          "label": "8 spreadsheet jobs (40 formulas checked)"
+        },
+        {
+          "key": "connections",
+          "label": "Connections while working"
+        }
+      ],
+      "versions": [
+        {
+          "version": "0.12.1",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": 5.5,
+          "of": 8,
+          "summary": "40 of 40 formulas and the pivot totals right. Opened only 49,998 of 100,000 rows, and changed IDs (00123 to 123) and dates in a CSV without asking.",
+          "results": {
+            "jobs": {
+              "value": "5.5/8, 40/40 formulas",
+              "grade": "partial"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "Windows connection log during all 8 jobs (39 minutes); no listening port"
+            },
+            "closed": {
+              "count": 0,
+              "how": "0 processes left running 5 minutes after closing"
+            }
+          },
+          "connections_detail": [],
+          "video": null,
+          "source": "V13 lab findings, 26 Oct 2026, sections 3 and 5",
+          "use_for": "Budgets, formulas and pivot tables: 40 of 40 formulas right, pivot totals exact.",
+          "not_yet_for": "Big files (it kept 49,998 of 100,000 rows) or CSVs with leading zeros and day-first dates."
+        }
+      ]
+    },
+    {
+      "id": "deckcraft",
+      "name": "DeckCraft",
+      "kind": "craft",
+      "category": "Slides",
+      "compare_to": "powerpoint-web",
+      "source_url": "https://github.com/storytold/deckcraft",
+      "latest_seen": {
+        "version": "0.11.1",
+        "checked": "2026-10-26"
+      },
+      "tracked": [
+        {
+          "key": "jobs",
+          "label": "3 slide jobs"
+        },
+        {
+          "key": "connections",
+          "label": "Connections while working"
+        }
+      ],
+      "versions": [
+        {
+          "version": "0.11.1",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": 3,
+          "of": 3,
+          "summary": "All 3 jobs passed: the 10-slide deck opened right (table, chart, notes), presented with transitions and exported a matching 10-page PDF. The README still calls it early development.",
+          "results": {
+            "jobs": {
+              "value": "3/3",
+              "grade": "pass"
+            },
+            "connections": {
+              "value": "0",
+              "grade": "pass"
+            }
+          },
+          "connections": {
+            "working": {
+              "count": 0,
+              "how": "Windows connection log during all 3 jobs; no listening port"
+            },
+            "closed": {
+              "count": 0,
+              "how": "0 processes left running 5 minutes after closing"
+            }
+          },
+          "connections_detail": [],
+          "video": null,
+          "source": "V13 lab findings, 26 Oct 2026, section 6",
+          "use_for": "Opening, presenting and exporting everyday decks: 3 of 3 passed.",
+          "not_yet_for": "Anything beyond our 3 jobs: we tested one 10-slide deck, and the developer calls it early development."
+        }
+      ]
+    },
+    {
+      "id": "acrobat",
+      "name": "Adobe Acrobat Pro",
+      "short": "Acrobat Pro",
+      "kind": "paid",
+      "category": "PDF editor (trial)",
+      "versions": [
+        {
+          "version": "26.002.22031",
+          "date": "2026-10-20",
+          "status": "measured",
+          "platform": "Windows 11 lab PC",
+          "score": 10,
+          "of": 10,
+          "summary": "Passed all 10 jobs. Signed in to an Adobe account, default settings.",
+          "connections": {
+            "working": {
+              "count": 23,
+              "how": "Hosts contacted by Acrobat's processes and built-in web views: 19 during 58 minutes of local PDF work (no document upload seen, 0.19 MB sent) + 4 when I used the AI Assistant"
+            },
+            "closed": {
+              "count": 7,
+              "how": "With Acrobat closed, AcroTray restarted itself 45 minutes later; AcroTray, AdobeCollabSync and LogTransport2 kept contacting Adobe",
+              "timeline": {
+                "start": "10:49:23",
+                "end": "11:37:00",
+                "captured_from": "10:49:23",
+                "events": [
+                  {
+                    "time": "10:41:00",
+                    "text": "Acrobat closed. 4 Adobe processes keep running in the background."
+                  },
+                  {
+                    "time": "10:49:23",
+                    "text": "Capture running. No Adobe connections yet."
+                  },
+                  {
+                    "time": "11:26:12",
+                    "text": "AcroTray restarts by itself, 45 minutes after Acrobat was closed."
+                  },
+                  {
+                    "time": "11:26:14",
+                    "text": "AcroTray and AdobeCollabSync contact 6 Adobe hosts."
+                  },
+                  {
+                    "time": "11:36:29",
+                    "text": "LogTransport2, Adobe's log uploader, connects to 44.219.221.77."
+                  },
+                  {
+                    "time": "11:37:00",
+                    "text": "End of capture. Acrobat itself was never reopened."
+                  }
+                ]
+              }
+            }
+          },
+          "connections_detail": [
+            {
+              "host": "acroipm2.adobe.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "aepxlg.adobe.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "cai-signer.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat",
+              "note": "Content Credentials"
+            },
+            {
+              "host": "cc-api-data.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "cctypekit.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "contentcredentials.org",
+              "owner": "Content Credentials",
+              "scenario": "working",
+              "process": "Acrobat",
+              "note": "Content Credentials"
+            },
+            {
+              "host": "faster.typekit.net",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat",
+              "mb_down": 9.3,
+              "note": "Fonts"
+            },
+            {
+              "host": "files-asr.acrobat.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "ic.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "ims-na1.adobelogin.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat",
+              "note": "Sign-in"
+            },
+            {
+              "host": "raw.githubusercontent.com",
+              "owner": "GitHub",
+              "scenario": "working",
+              "process": "Acrobat",
+              "note": "Content Credentials"
+            },
+            {
+              "host": "udps.adobe.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat"
+            },
+            {
+              "host": "verify.contentauthenticity.org",
+              "owner": "Content Credentials",
+              "scenario": "working",
+              "process": "Acrobat",
+              "note": "Content Credentials"
+            },
+            {
+              "host": "adobe.demdex.net",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view",
+              "note": "Adobe audience platform"
+            },
+            {
+              "host": "sstats.adobe.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view",
+              "note": "Analytics"
+            },
+            {
+              "host": "fillsign.acrobat.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view"
+            },
+            {
+              "host": "createpdf-asr.acrobat.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view"
+            },
+            {
+              "host": "cloud-asr.acrobat.com",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view"
+            },
+            {
+              "host": "hbc.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat web view"
+            },
+            {
+              "host": "dc-api-v2.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat AI Assistant",
+              "kb_up": 2.0,
+              "note": "Summary of a 3.8 KB contract"
+            },
+            {
+              "host": "dc-genai-content-platform-v2-jpn3.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat AI Assistant",
+              "kb_up": 8.6,
+              "note": "Summary of a 3.8 KB contract"
+            },
+            {
+              "host": "senseicore-an1.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat AI Assistant",
+              "kb_up": 18.6,
+              "note": "Summary of a 3.8 KB contract"
+            },
+            {
+              "host": "dc-genai-access-provisioning-api.adobe.io",
+              "owner": "Adobe",
+              "scenario": "working",
+              "process": "Acrobat AI Assistant",
+              "kb_up": 1.8,
+              "note": "Summary of a 3.8 KB contract"
+            },
+            {
+              "host": "cc-api-data.adobe.io",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AcroTray",
+              "time": "11:26:16"
+            },
+            {
+              "host": "ims-na1.adobelogin.com",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AcroTray",
+              "time": "11:26:16"
+            },
+            {
+              "host": "ims-prod06.adobelogin.com",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AcroTray",
+              "time": "11:26:16"
+            },
+            {
+              "host": "p13n.adobe.io",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AcroTray",
+              "time": "11:26:18"
+            },
+            {
+              "host": "lcs-cops.adobe.io",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AcroTray",
+              "time": "11:26:17"
+            },
+            {
+              "host": "aepxlg.adobe.com",
+              "owner": "Adobe",
+              "scenario": "closed",
+              "process": "AdobeCollabSync",
+              "time": "11:26:14"
+            },
+            {
+              "host": "44.219.221.77",
+              "owner": "Adobe log uploader",
+              "scenario": "closed",
+              "process": "LogTransport2",
+              "note": "Adobe's log uploader, port 443",
+              "time": "11:36:29"
+            }
+          ],
+          "source": "V10 lab findings, 20 Oct 2026, sections 4, 5, 8 and 11",
+          "means": "kept contacting Adobe after it was closed: AcroTray restarted by itself 45 minutes later"
+        }
+      ]
+    },
+    {
+      "id": "word-web",
+      "name": "Microsoft Word for the web",
+      "short": "Word for the web",
+      "kind": "paid",
+      "category": "Word processor (free, Microsoft account)",
+      "versions": [
+        {
+          "version": "build 20261019.4",
+          "date": "2026-10-21",
+          "status": "measured",
+          "platform": "Windows 11 lab PC, browser",
+          "score": 9.5,
+          "of": 10,
+          "summary": "Tied with WordCraft. Mail merge needs the desktop app. Every file opened was uploaded to OneDrive.",
+          "connections": {
+            "working": {
+              "count": 64,
+              "how": "Hosts in one 47-minute editing session; a test phrase I typed reached Microsoft's editing server within seconds (this is how cloud editing works)"
+            },
+            "closed": null
+          },
+          "connections_detail": [
+            {
+              "host": "word-edit.officeapps.live.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Word for the web",
+              "note": "Typed text sent as you type"
+            },
+            {
+              "host": "graph.microsoft.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Word for the web",
+              "requests": 7,
+              "note": "Each opened file uploaded to OneDrive"
+            },
+            {
+              "host": "browser.events.data.microsoft.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Word for the web",
+              "requests": 449,
+              "mb_up": 8.9,
+              "note": "Diagnostic events"
+            },
+            {
+              "host": "eu-office.events.data.microsoft.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Word for the web",
+              "requests": 54,
+              "mb_up": 1.2,
+              "note": "Diagnostic events"
+            },
+            {
+              "host": "euc-word-telemetry.officeapps.live.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Word for the web",
+              "requests": 51,
+              "mb_up": 0.67,
+              "note": "Diagnostic events"
+            }
+          ],
+          "source": "V11 lab findings, 21 Oct 2026, section 7",
+          "means": "sends what you type to Microsoft as you type, because the document lives in the cloud"
+        }
+      ]
+    },
+    {
+      "id": "photoshop",
+      "name": "Adobe Photoshop",
+      "short": "Photoshop",
+      "kind": "paid",
+      "category": "Photo editor",
+      "versions": [
+        {
+          "version": null,
+          "date": null,
+          "status": "not_tested",
+          "platform": null,
+          "score": null,
+          "of": null,
+          "summary": "Not run in our lab. PhotoCraft was graded on 10 standard Photoshop jobs.",
+          "connections": {
+            "working": null,
+            "closed": null
+          },
+          "connections_detail": [],
+          "source": "V09 lab findings, 17 Oct 2026"
+        }
+      ]
+    },
+    {
+      "id": "excel-web",
+      "name": "Microsoft Excel for the web",
+      "short": "Excel for the web",
+      "kind": "paid",
+      "category": "Spreadsheet (free, Microsoft account)",
+      "versions": [
+        {
+          "version": "build seen 26 Oct 2026",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC, browser",
+          "score": 6.5,
+          "of": 8,
+          "summary": "Opened all 100,000 rows. Changed the same CSV without asking (and broke the accented names). Every file opened was uploaded to OneDrive.",
+          "connections": {
+            "working": {
+              "count": 118,
+              "how": "Hosts in one 52-minute Edge session (browser included); a test line I typed reached Microsoft's server 0.08 s after Enter (this is how cloud editing works)"
+            },
+            "closed": null
+          },
+          "connections_detail": [
+            {
+              "host": "excel.officeapps.live.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Excel for the web",
+              "requests": 1227,
+              "note": "Typed text sent as you type"
+            },
+            {
+              "host": "onedrive.live.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Excel for the web",
+              "requests": 165,
+              "mb_up": 9.6,
+              "note": "Files stored in OneDrive"
+            },
+            {
+              "host": "excel-telemetry.officeapps.live.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Excel for the web",
+              "requests": 806,
+              "mb_up": 30.0,
+              "note": "Diagnostic events"
+            },
+            {
+              "host": "browser.events.data.microsoft.com",
+              "owner": "Microsoft",
+              "scenario": "working",
+              "process": "Excel for the web",
+              "requests": 636,
+              "mb_up": 28.1,
+              "note": "Diagnostic events"
+            }
+          ],
+          "means": "did the same with a spreadsheet: a test line I typed reached Microsoft 0.08 seconds after I pressed Enter",
+          "source": "V13 lab findings, 26 Oct 2026, section 4"
+        }
+      ]
+    },
+    {
+      "id": "powerpoint-web",
+      "name": "Microsoft PowerPoint for the web",
+      "short": "PowerPoint for the web",
+      "kind": "paid",
+      "category": "Slides (free, Microsoft account)",
+      "versions": [
+        {
+          "version": "build seen 26 Oct 2026",
+          "date": "2026-10-26",
+          "status": "measured",
+          "platform": "Windows 11 lab PC, browser",
+          "score": 2.5,
+          "of": 3,
+          "summary": "The deck opened right and exported a matching PDF. Slides advanced, but I didn't see the 2 transitions play in 3 recorded runs.",
+          "connections": {
+            "working": null,
+            "closed": null
+          },
+          "connections_detail": [],
+          "source": "V13 lab findings, 26 Oct 2026, section 6"
+        }
+      ]
+    }
+  ]
+}

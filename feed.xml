@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Craft Scoreboard: new lab results</title>
+  <subtitle>Free Craft apps tested version by version on a real lab PC.</subtitle>
+  <link href="https://hardenedstack.github.io/craft-scoreboard/"/>
+  <link rel="self" href="https://hardenedstack.github.io/craft-scoreboard/feed.xml"/>
+  <id>https://hardenedstack.github.io/craft-scoreboard/</id>
+  <updated>2026-10-26T13:00:00Z</updated>
+  <author><name>The Hardened Stack</name></author>
+  <entry>
+    <title>PdfCraft 0.14.0: no score, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/pdfcraft/0.14.0</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#pdfcraft"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>Retest: redacting a scanned page still deletes the whole page (same 1,297-byte file as 0.9.0; GitHub issue #2246 still open). Text redaction still works. Measured 26 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>WordCraft 0.11.0: no score, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/wordcraft/0.11.0</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#wordcraft"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>Retest: still 3 of 12 planted errors, spelling only, although &quot;Mark grammar errors as you type&quot; is on by default. The 40-page report round trip still passes. Measured 26 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>GridCraft 0.12.1: 5.5/8, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/gridcraft/0.12.1</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#gridcraft"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>40 of 40 formulas and the pivot totals right. Opened only 49,998 of 100,000 rows, and changed IDs (00123 to 123) and dates in a CSV without asking. Measured 26 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>DeckCraft 0.11.1: 3/3, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/deckcraft/0.11.1</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#deckcraft"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>All 3 jobs passed: the 10-slide deck opened right (table, chart, notes), presented with transitions and exported a matching 10-page PDF. The README still calls it early development. Measured 26 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>Microsoft Excel for the web build seen 26 Oct 2026: 6.5/8, while you work: 118 hosts</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/excel-web/build seen 26 Oct 2026</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#results"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>Opened all 100,000 rows. Changed the same CSV without asking (and broke the accented names). Every file opened was uploaded to OneDrive. Measured 26 Oct 2026 on our Windows 11 lab PC, browser.</summary>
+  </entry>
+  <entry>
+    <title>Microsoft PowerPoint for the web build seen 26 Oct 2026: 2.5/3, while you work: not measured</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/powerpoint-web/build seen 26 Oct 2026</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#results"/>
+    <updated>2026-10-26T13:00:00Z</updated>
+    <summary>The deck opened right and exported a matching PDF. Slides advanced, but I didn&#x27;t see the 2 transitions play in 3 recorded runs. Measured 26 Oct 2026 on our Windows 11 lab PC, browser.</summary>
+  </entry>
+  <entry>
+    <title>WordCraft 0.9.0: 9.5/10, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/wordcraft/0.9.0</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#wordcraft"/>
+    <updated>2026-10-21T13:00:00Z</updated>
+    <summary>Tied with free Word for the web. The checker caught spelling only, no grammar. Measured 21 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>Microsoft Word for the web build 20261019.4: 9.5/10, while you work: 64 hosts</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/word-web/build 20261019.4</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#results"/>
+    <updated>2026-10-21T13:00:00Z</updated>
+    <summary>Tied with WordCraft. Mail merge needs the desktop app. Every file opened was uploaded to OneDrive. Measured 21 Oct 2026 on our Windows 11 lab PC, browser.</summary>
+  </entry>
+  <entry>
+    <title>PdfCraft 0.9.0: 9.5/10, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/pdfcraft/0.9.0</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#pdfcraft"/>
+    <updated>2026-10-20T13:00:00Z</updated>
+    <summary>9 of 10 jobs passed. Redacting a scanned page deleted the whole page (GitHub issue #2246). Measured 20 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>Adobe Acrobat Pro 26.002.22031: 10/10, while you work: 23 hosts</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/acrobat/26.002.22031</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#results"/>
+    <updated>2026-10-20T13:00:00Z</updated>
+    <summary>Passed all 10 jobs. Signed in to an Adobe account, default settings. Measured 20 Oct 2026 on our Windows 11 lab PC.</summary>
+  </entry>
+  <entry>
+    <title>PhotoCraft 0.9.0: 7/10, while you work: 0</title>
+    <id>tag:hardenedstack.github.io,2026:craft-scoreboard/photocraft/0.9.0</id>
+    <link href="https://hardenedstack.github.io/craft-scoreboard/#photocraft"/>
+    <updated>2026-10-17T13:00:00Z</updated>
+    <summary>6 passes, 2 partials, 2 fails on 10 standard Photoshop jobs. Measured 17 Oct 2026 on our Ubuntu lab PC.</summary>
+  </entry>
+</feed>

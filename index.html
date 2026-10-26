@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" class="nojs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-T2UL5jpI9P/61EwZ3cKBahAchgJo50HOl8XZq+KTWSU='; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Craft Scoreboard</title>
+<meta name="description" content="Free Craft apps (PdfCraft, WordCraft, PhotoCraft, GridCraft, DeckCraft) tested version by version on a real lab PC: a score against the paid app, and every network connection measured.">
+<meta name="theme-color" content="#0a0f1f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Hardened Stack">
+<meta property="og:title" content="Craft Scoreboard: free Craft apps, measured on a real PC">
+<meta property="og:description" content="Free Craft apps (PdfCraft, WordCraft, PhotoCraft, GridCraft, DeckCraft) tested version by version on a real lab PC: a score against the paid app, and every network connection measured.">
+<meta property="og:url" content="https://hardenedstack.github.io/craft-scoreboard/">
+<meta property="og:image" content="https://hardenedstack.github.io/craft-scoreboard/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lab network map: Craft apps at 0 connections, Acrobat and Word for the web contacting dozens of hosts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Craft Scoreboard">
+<meta name="twitter:description" content="Free Craft apps (PdfCraft, WordCraft, PhotoCraft, GridCraft, DeckCraft) tested version by version on a real lab PC: a score against the paid app, and every network connection measured.">
+<meta name="twitter:image" content="https://hardenedstack.github.io/craft-scoreboard/og.png">
+<link rel="canonical" href="https://hardenedstack.github.io/craft-scoreboard/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Craft Scoreboard: new lab results" href="feed.xml">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>(function(){var d=document.documentElement;d.classList.remove('nojs');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}var q=location.search;if(/[?&](stage|og)\b/.test(q)||location.hash==='#stage')d.classList.add('stage');if(/[?&]og\b/.test(q))d.classList.add('og');var m=/[?&]theme=(light|dark)\b/.exec(q);if(m)d.setAttribute('data-theme',m[1])})();</script>
+<script type="application/json" id="data">{"schema":2,"updated":"2026-10-26","site":{"title":"Craft Scoreboard","url":"https://hardenedstack.github.io/craft-scoreboard/","channel":"The Hardened Stack","channel_url":"https://www.youtube.com/channel/UCg95mVk6Es290vh_YB7RZUg"},"scoring":{"pass":1,"partial":0.5,"fail":0,"rule":"Each job is graded PASS 1, PARTIAL 0.5 or FAIL 0. The grading rules for every job are written down before the first app runs it, and both apps get the same jobs and the same files.","scope":"A result covers only the version and the date shown. A newer version can behave differently.","connections":"Connections are network connections made by the app's own processes during the test, captured on the lab PC (packet capture plus the operating system's per-program connection log)."},"scenarios":{"working":"While you work","closed":"After you close it"},"apps":[{"id":"pdfcraft","name":"PdfCraft","kind":"craft","category":"PDF editor","compare_to":"acrobat","source_url":"https://github.com/storytold/pdfcraft","latest_seen":{"version":"0.14.0","checked":"2026-10-26"},"tracked":[{"key":"scanned_redaction","label":"Redact one line on a scanned page"},{"key":"ocr","label":"OCR word accuracy"},{"key":"connections","label":"Connections while working"}],"versions":[{"version":"0.9.0","date":"2026-10-20","status":"measured","platform":"Windows 11 lab PC","score":9.5,"of":10,"summary":"9 of 10 jobs passed. Redacting a scanned page deleted the whole page (GitHub issue #2246).","results":{"scanned_redaction":{"value":"Whole page went blank","grade":"fail"},"ocr":{"value":"97.6%","grade":"pass"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"41-minute capture of all 10 jobs + Windows connection log"},"closed":{"count":0,"how":"0 processes left running after closing"}},"connections_detail":[],"video":{"id":"ELmmosIsNdI","title":"PdfCraft vs Adobe Acrobat: 10 Real PDF Jobs. It Scored 9.5/10"},"source":"V10 lab findings, 20 Oct 2026, sections 9-13","use_for":"Everyday PDF jobs: 9 of 10 passed, incl. OCR at 97.6% word accuracy.","not_yet_for":"Redacting scanned pages: the whole page went blank."},{"version":"0.14.0","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC","score":null,"of":null,"summary":"Retest: redacting a scanned page still deletes the whole page (same 1,297-byte file as 0.9.0; GitHub issue #2246 still open). Text redaction still works.","results":{"scanned_redaction":{"value":"Whole page still goes blank","grade":"fail"},"ocr":null,"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"Windows connection log during 11 minutes of jobs; the only connection all night was a manual Help > Check for updates (api.github.com)"},"closed":{"count":0,"how":"0 processes left running 5 minutes after closing"}},"connections_detail":[{"host":"api.github.com","owner":"GitHub","scenario":"working","process":"PdfCraft","requests":1,"note":"Only when I clicked Help > Check for updates"}],"use_for":"Text PDFs: redacting text still passed, and it made 0 connections.","not_yet_for":"Redacting scanned pages: the whole page still goes blank in 0.14.0.","video":null,"source":"V13 lab findings, 26 Oct 2026, sections 7-8","proof":{"type":"before_after","label":"Redact one line on a scanned page (0.14.0)","before":"img/pdfcraft-0.14.0-scan-redaction-before.webp","after":"img/pdfcraft-0.14.0-scan-redaction-after.webp","width":1200,"height":675,"before_caption":"Before: one line marked for redaction","after_caption":"After Apply: the whole page still went blank","source":"Lab take, 26 Oct 2026 (GitHub issue #2246 still open)"}}]},{"id":"wordcraft","name":"WordCraft","kind":"craft","category":"Word processor","compare_to":"word-web","source_url":"https://github.com/storytold/wordcraft","latest_seen":{"version":"0.11.0","checked":"2026-10-26"},"tracked":[{"key":"grammar","label":"Spelling + grammar (12 planted errors)"},{"key":"round_trip","label":"40-page report round trip"},{"key":"connections","label":"Connections while working"}],"versions":[{"version":"0.9.0","date":"2026-10-21","status":"measured","platform":"Windows 11 lab PC","score":9.5,"of":10,"summary":"Tied with free Word for the web. The checker caught spelling only, no grammar.","results":{"grammar":{"value":"3/12, spelling only","grade":"partial"},"round_trip":{"value":"13/13 headings, 40/40 pages","grade":"pass"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"Windows connection log during all 10 jobs: 720 events, 0 from wordcraft.exe"},"closed":null},"connections_detail":[],"video":{"id":"M-QbzRAQcp0","title":"WordCraft vs Free Microsoft Word: Same Score. One Uploads Files"},"source":"V11 lab findings, 21 Oct 2026, sections 8-9","use_for":"Everyday Word documents: invoices, a 40-page report and round trips all passed.","not_yet_for":"Grammar checks: it caught 3 of 12 planted errors, spelling only."},{"version":"0.11.0","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC","score":null,"of":null,"summary":"Retest: still 3 of 12 planted errors, spelling only, although \"Mark grammar errors as you type\" is on by default. The 40-page report round trip still passes.","results":{"grammar":{"value":"3/12, spelling only","grade":"partial"},"round_trip":{"value":"13/13 structure items","grade":"pass"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"Windows connection log during 23 minutes and 3 documents; checking works offline"},"closed":{"count":0,"how":"0 processes left running 5 minutes after closing"}},"connections_detail":[],"use_for":"Everyday Word documents, offline: the report round trip passed, 0 connections.","not_yet_for":"Grammar checks: still 3 of 12 caught, spelling only.","video":null,"source":"V13 lab findings, 26 Oct 2026, sections 7-8"}]},{"id":"photocraft","name":"PhotoCraft","kind":"craft","category":"Photo editor","compare_to":"photoshop","source_url":"https://github.com/storytold/photocraft","latest_seen":{"version":"0.9.0","checked":"2026-10-17"},"tracked":[{"key":"remove_background","label":"Remove a portrait background"},{"key":"generative_fill","label":"Generative fill / AI expand"},{"key":"connections","label":"Connections while working"}],"versions":[{"version":"0.9.0","date":"2026-10-17","status":"measured","platform":"Ubuntu lab PC","score":7,"of":10,"summary":"6 passes, 2 partials, 2 fails on 10 standard Photoshop jobs.","results":{"remove_background":{"value":"Lost the top of the head","grade":"fail"},"generative_fill":{"value":"Not in the app","grade":"fail"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"16-minute packet capture + per-process trace of 11 takes"},"closed":null},"connections_detail":[],"video":{"id":"yradgS_aGLQ","title":"PhotoCraft vs Photoshop: 10 Real Jobs. It Scored 7/10"},"source":"V09 lab findings, 17 Oct 2026, sections 2 and 4","use_for":"Crops, text, Curves, masks and spot healing: all passed.","not_yet_for":"Cutting out people (it lost the top of the head) or AI fill (not in the app)."}]},{"id":"gridcraft","name":"GridCraft","kind":"craft","category":"Spreadsheet","compare_to":"excel-web","source_url":"https://github.com/storytold/gridcraft","latest_seen":{"version":"0.12.1","checked":"2026-10-26"},"tracked":[{"key":"jobs","label":"8 spreadsheet jobs (40 formulas checked)"},{"key":"connections","label":"Connections while working"}],"versions":[{"version":"0.12.1","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC","score":5.5,"of":8,"summary":"40 of 40 formulas and the pivot totals right. Opened only 49,998 of 100,000 rows, and changed IDs (00123 to 123) and dates in a CSV without asking.","results":{"jobs":{"value":"5.5/8, 40/40 formulas","grade":"partial"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"Windows connection log during all 8 jobs (39 minutes); no listening port"},"closed":{"count":0,"how":"0 processes left running 5 minutes after closing"}},"connections_detail":[],"video":null,"source":"V13 lab findings, 26 Oct 2026, sections 3 and 5","use_for":"Budgets, formulas and pivot tables: 40 of 40 formulas right, pivot totals exact.","not_yet_for":"Big files (it kept 49,998 of 100,000 rows) or CSVs with leading zeros and day-first dates."}]},{"id":"deckcraft","name":"DeckCraft","kind":"craft","category":"Slides","compare_to":"powerpoint-web","source_url":"https://github.com/storytold/deckcraft","latest_seen":{"version":"0.11.1","checked":"2026-10-26"},"tracked":[{"key":"jobs","label":"3 slide jobs"},{"key":"connections","label":"Connections while working"}],"versions":[{"version":"0.11.1","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC","score":3,"of":3,"summary":"All 3 jobs passed: the 10-slide deck opened right (table, chart, notes), presented with transitions and exported a matching 10-page PDF. The README still calls it early development.","results":{"jobs":{"value":"3/3","grade":"pass"},"connections":{"value":"0","grade":"pass"}},"connections":{"working":{"count":0,"how":"Windows connection log during all 3 jobs; no listening port"},"closed":{"count":0,"how":"0 processes left running 5 minutes after closing"}},"connections_detail":[],"video":null,"source":"V13 lab findings, 26 Oct 2026, section 6","use_for":"Opening, presenting and exporting everyday decks: 3 of 3 passed.","not_yet_for":"Anything beyond our 3 jobs: we tested one 10-slide deck, and the developer calls it early development."}]},{"id":"acrobat","name":"Adobe Acrobat Pro","short":"Acrobat Pro","kind":"paid","category":"PDF editor (trial)","versions":[{"version":"26.002.22031","date":"2026-10-20","status":"measured","platform":"Windows 11 lab PC","score":10,"of":10,"summary":"Passed all 10 jobs. Signed in to an Adobe account, default settings.","connections":{"working":{"count":23,"how":"Hosts contacted by Acrobat's processes and built-in web views: 19 during 58 minutes of local PDF work (no document upload seen, 0.19 MB sent) + 4 when I used the AI Assistant"},"closed":{"count":7,"how":"With Acrobat closed, AcroTray restarted itself 45 minutes later; AcroTray, AdobeCollabSync and LogTransport2 kept contacting Adobe","timeline":{"start":"10:49:23","end":"11:37:00","captured_from":"10:49:23","events":[{"time":"10:41:00","text":"Acrobat closed. 4 Adobe processes keep running in the background."},{"time":"10:49:23","text":"Capture running. No Adobe connections yet."},{"time":"11:26:12","text":"AcroTray restarts by itself, 45 minutes after Acrobat was closed."},{"time":"11:26:14","text":"AcroTray and AdobeCollabSync contact 6 Adobe hosts."},{"time":"11:36:29","text":"LogTransport2, Adobe's log uploader, connects to 44.219.221.77."},{"time":"11:37:00","text":"End of capture. Acrobat itself was never reopened."}]}}},"connections_detail":[{"host":"acroipm2.adobe.com","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"aepxlg.adobe.com","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"cai-signer.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat","note":"Content Credentials"},{"host":"cc-api-data.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"cctypekit.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"contentcredentials.org","owner":"Content Credentials","scenario":"working","process":"Acrobat","note":"Content Credentials"},{"host":"faster.typekit.net","owner":"Adobe","scenario":"working","process":"Acrobat","mb_down":9.3,"note":"Fonts"},{"host":"files-asr.acrobat.com","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"ic.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"ims-na1.adobelogin.com","owner":"Adobe","scenario":"working","process":"Acrobat","note":"Sign-in"},{"host":"raw.githubusercontent.com","owner":"GitHub","scenario":"working","process":"Acrobat","note":"Content Credentials"},{"host":"udps.adobe.com","owner":"Adobe","scenario":"working","process":"Acrobat"},{"host":"verify.contentauthenticity.org","owner":"Content Credentials","scenario":"working","process":"Acrobat","note":"Content Credentials"},{"host":"adobe.demdex.net","owner":"Adobe","scenario":"working","process":"Acrobat web view","note":"Adobe audience platform"},{"host":"sstats.adobe.com","owner":"Adobe","scenario":"working","process":"Acrobat web view","note":"Analytics"},{"host":"fillsign.acrobat.com","owner":"Adobe","scenario":"working","process":"Acrobat web view"},{"host":"createpdf-asr.acrobat.com","owner":"Adobe","scenario":"working","process":"Acrobat web view"},{"host":"cloud-asr.acrobat.com","owner":"Adobe","scenario":"working","process":"Acrobat web view"},{"host":"hbc.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat web view"},{"host":"dc-api-v2.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat AI Assistant","kb_up":2.0,"note":"Summary of a 3.8 KB contract"},{"host":"dc-genai-content-platform-v2-jpn3.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat AI Assistant","kb_up":8.6,"note":"Summary of a 3.8 KB contract"},{"host":"senseicore-an1.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat AI Assistant","kb_up":18.6,"note":"Summary of a 3.8 KB contract"},{"host":"dc-genai-access-provisioning-api.adobe.io","owner":"Adobe","scenario":"working","process":"Acrobat AI Assistant","kb_up":1.8,"note":"Summary of a 3.8 KB contract"},{"host":"cc-api-data.adobe.io","owner":"Adobe","scenario":"closed","process":"AcroTray","time":"11:26:16"},{"host":"ims-na1.adobelogin.com","owner":"Adobe","scenario":"closed","process":"AcroTray","time":"11:26:16"},{"host":"ims-prod06.adobelogin.com","owner":"Adobe","scenario":"closed","process":"AcroTray","time":"11:26:16"},{"host":"p13n.adobe.io","owner":"Adobe","scenario":"closed","process":"AcroTray","time":"11:26:18"},{"host":"lcs-cops.adobe.io","owner":"Adobe","scenario":"closed","process":"AcroTray","time":"11:26:17"},{"host":"aepxlg.adobe.com","owner":"Adobe","scenario":"closed","process":"AdobeCollabSync","time":"11:26:14"},{"host":"44.219.221.77","owner":"Adobe log uploader","scenario":"closed","process":"LogTransport2","note":"Adobe's log uploader, port 443","time":"11:36:29"}],"source":"V10 lab findings, 20 Oct 2026, sections 4, 5, 8 and 11","means":"kept contacting Adobe after it was closed: AcroTray restarted by itself 45 minutes later"}]},{"id":"word-web","name":"Microsoft Word for the web","short":"Word for the web","kind":"paid","category":"Word processor (free, Microsoft account)","versions":[{"version":"build 20261019.4","date":"2026-10-21","status":"measured","platform":"Windows 11 lab PC, browser","score":9.5,"of":10,"summary":"Tied with WordCraft. Mail merge needs the desktop app. Every file opened was uploaded to OneDrive.","connections":{"working":{"count":64,"how":"Hosts in one 47-minute editing session; a test phrase I typed reached Microsoft's editing server within seconds (this is how cloud editing works)"},"closed":null},"connections_detail":[{"host":"word-edit.officeapps.live.com","owner":"Microsoft","scenario":"working","process":"Word for the web","note":"Typed text sent as you type"},{"host":"graph.microsoft.com","owner":"Microsoft","scenario":"working","process":"Word for the web","requests":7,"note":"Each opened file uploaded to OneDrive"},{"host":"browser.events.data.microsoft.com","owner":"Microsoft","scenario":"working","process":"Word for the web","requests":449,"mb_up":8.9,"note":"Diagnostic events"},{"host":"eu-office.events.data.microsoft.com","owner":"Microsoft","scenario":"working","process":"Word for the web","requests":54,"mb_up":1.2,"note":"Diagnostic events"},{"host":"euc-word-telemetry.officeapps.live.com","owner":"Microsoft","scenario":"working","process":"Word for the web","requests":51,"mb_up":0.67,"note":"Diagnostic events"}],"source":"V11 lab findings, 21 Oct 2026, section 7","means":"sends what you type to Microsoft as you type, because the document lives in the cloud"}]},{"id":"photoshop","name":"Adobe Photoshop","short":"Photoshop","kind":"paid","category":"Photo editor","versions":[{"version":null,"date":null,"status":"not_tested","platform":null,"score":null,"of":null,"summary":"Not run in our lab. PhotoCraft was graded on 10 standard Photoshop jobs.","connections":{"working":null,"closed":null},"connections_detail":[],"source":"V09 lab findings, 17 Oct 2026"}]},{"id":"excel-web","name":"Microsoft Excel for the web","short":"Excel for the web","kind":"paid","category":"Spreadsheet (free, Microsoft account)","versions":[{"version":"build seen 26 Oct 2026","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC, browser","score":6.5,"of":8,"summary":"Opened all 100,000 rows. Changed the same CSV without asking (and broke the accented names). Every file opened was uploaded to OneDrive.","connections":{"working":{"count":118,"how":"Hosts in one 52-minute Edge session (browser included); a test line I typed reached Microsoft's server 0.08 s after Enter (this is how cloud editing works)"},"closed":null},"connections_detail":[{"host":"excel.officeapps.live.com","owner":"Microsoft","scenario":"working","process":"Excel for the web","requests":1227,"note":"Typed text sent as you type"},{"host":"onedrive.live.com","owner":"Microsoft","scenario":"working","process":"Excel for the web","requests":165,"mb_up":9.6,"note":"Files stored in OneDrive"},{"host":"excel-telemetry.officeapps.live.com","owner":"Microsoft","scenario":"working","process":"Excel for the web","requests":806,"mb_up":30.0,"note":"Diagnostic events"},{"host":"browser.events.data.microsoft.com","owner":"Microsoft","scenario":"working","process":"Excel for the web","requests":636,"mb_up":28.1,"note":"Diagnostic events"}],"means":"did the same with a spreadsheet: a test line I typed reached Microsoft 0.08 seconds after I pressed Enter","source":"V13 lab findings, 26 Oct 2026, section 4"}]},{"id":"powerpoint-web","name":"Microsoft PowerPoint for the web","short":"PowerPoint for the web","kind":"paid","category":"Slides (free, Microsoft account)","versions":[{"version":"build seen 26 Oct 2026","date":"2026-10-26","status":"measured","platform":"Windows 11 lab PC, browser","score":2.5,"of":3,"summary":"The deck opened right and exported a matching PDF. Slides advanced, but I didn't see the 2 transitions play in 3 recorded runs.","connections":{"working":null,"closed":null},"connections_detail":[],"source":"V13 lab findings, 26 Oct 2026, section 6"}]}]}</script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to results</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="18" height="4" rx="1" fill="currentColor"/><rect x="4" y="14" width="18" height="4" rx="1" fill="currentColor"/><rect x="4" y="22" width="18" height="4" rx="1" fill="currentColor"/><path class="logo-flow" d="M3 27 L13 16 L19 20 L28 8 M22 8 H28 V14" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <b>The Hardened Stack</b><span class="sep">/</span><span>Craft Scoreboard</span>
+    </a>
+    <nav aria-label="Sections">
+      <a class="hide-sm" href="#apps">Apps</a>
+      <a class="hide-sm" href="#check">Check version</a>
+      <a class="hide-sm" href="#method">Method</a>
+      <button type="button" class="btn-icon" id="theme" aria-label="Switch theme">
+        <svg class="theme-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="theme-dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="label eyebrow"><span class="dot" aria-hidden="true"></span>Lab results · updated 26 Oct 2026</div>
+        <h1 id="hero-title">Free Craft apps, <em>measured</em> on a real PC</h1>
+        <p class="lede">We install each version of PdfCraft, WordCraft, PhotoCraft and the rest on our lab PC, give it the same jobs as the paid app, and log <strong>every network connection</strong> it makes.</p>
+        <div class="contrast">
+          <div class="them"><div class="label">Code trackers</div><p>Count commits, releases and checksums on GitHub.</p></div>
+          <div class="us"><div class="label">This scoreboard</div><p>Runs the app: same jobs, same files, every connection logged.</p></div>
+        </div>
+        <ul class="answers" aria-label="Two answers per version">
+          <li><span class="k">01</span><span><b>Is it as good as the paid app?</b> A score on the same jobs, graded before the test.</span></li>
+          <li><span class="k">02</span><span><b>What does it connect to?</b> While you work, and after you close it.</span></li>
+        </ul>
+      </div>
+      <div class="map-wrap">
+        <div class="map-box">
+          <div class="map-frame">
+            <canvas id="map" role="img" aria-label="Lab network map. Craft apps measured at 0 connections. Adobe Acrobat Pro contacted 23 hosts while working and 7 after it was closed. Word for the web contacted 64 hosts in one editing session. The full list is in the connection log table below." aria-describedby="conn-log-summary"></canvas>
+            <div class="scan" aria-hidden="true"></div>
+            <div class="map-hud">
+              <div class="map-title">Lab network map<b>What each app connected to</b></div>
+              <div class="hud-ctl">
+              <button type="button" class="btn-icon replay" id="replay" aria-label="Replay the sequence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg></button>
+              <div class="seg" role="group" aria-label="When">
+                <button type="button" data-sc="working" aria-pressed="true">While you work</button>
+                <button type="button" data-sc="closed" aria-pressed="false">After you close it</button>
+              </div>
+              </div>
+            </div>
+            <div class="map-legend" aria-hidden="true"><span><i class="lg-q"></i>0 connections measured</span><span><i class="lg-t"></i>Measured traffic</span><span><i class="lg-c"></i>Test coming</span></div>
+          </div>
+          <div class="readout" id="readout" aria-live="polite"></div>
+        </div>
+        <p class="map-note">Lines are drawn only where our capture saw a connection. Each dot is a host. <a href="#conn-log">Every connection on the map, as a table</a>.</p>
+        <p class="map-means"><b>What this means for you:</b> Adobe Acrobat Pro kept contacting Adobe after it was closed: AcroTray restarted by itself 45 minutes later. Microsoft Word for the web sends what you type to Microsoft as you type, because the document lives in the cloud. Microsoft Excel for the web did the same with a spreadsheet: a test line I typed reached Microsoft 0.08 seconds after I pressed Enter. The 5 Craft apps we tested made 0 connections while working.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps" aria-labelledby="apps-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">One card per app</div><h2 id="apps-title">The apps, version by version</h2></div>
+        <p>Every number shows the version and the date we measured it. "?" means the retest is coming.</p>
+      </div>
+      <p class="new-banner" id="new-banner" hidden></p>
+      <noscript><p class="nojs-note">The app cards, the map and the version checker need JavaScript. Every result is in the tables further down.</p></noscript>
+      <div class="apps" id="apps-list"></div>
+    </div>
+  </section>
+
+  <section id="check" aria-labelledby="check-title" class="js-only">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">Your copy</div><h2 id="check-title">Is my version behind?</h2></div>
+        <p>Pick the app and type the version you have. You'll see how far behind the newest release it is and what our tests found.</p>
+      </div>
+      <div class="checker">
+        <form id="checker" autocomplete="off">
+          <div class="field"><label for="chk-app">App</label><select id="chk-app" name="app"></select></div>
+          <div class="field"><label for="chk-ver">Your version</label><input id="chk-ver" name="version" inputmode="decimal" placeholder="0.9.0" spellcheck="false" aria-describedby="chk-hint"><span class="hint" id="chk-hint">The version is in the installer's file name, for example pdfcraft-0.9.0-windows-x64.msi.</span></div>
+          <span class="example" id="chk-example">Example filled in</span>
+        </form>
+        <div class="check-out" id="chk-out" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" aria-labelledby="results-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">Plain data</div><h2 id="results-title">All results, as a table</h2></div>
+        <p>The same numbers as the cards, for every app and version. Source: <a href="scoreboard.json">scoreboard.json</a>.</p>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <caption class="sr-only">Craft Scoreboard results by app and version</caption>
+          <thead><tr><th scope="col">App</th><th scope="col">Version</th><th scope="col">Measured</th><th scope="col">Lab</th><th scope="col">Score</th><th scope="col">While you work</th><th scope="col">After you close it</th><th scope="col">Video</th></tr></thead>
+          <tbody><tr><td><a href="#pdfcraft">PdfCraft</a></td><td class="num">0.9.0</td><td class="num">20 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">9.5/10</td><td class="num">0</td><td class="num">0</td><td><a href="https://www.youtube.com/watch?v=ELmmosIsNdI" rel="noopener">Watch</a></td></tr>
+<tr><td><a href="#pdfcraft">PdfCraft</a></td><td class="num">0.14.0</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">retest</td><td class="num">0</td><td class="num">0</td><td>–</td></tr>
+<tr><td><a href="#wordcraft">WordCraft</a></td><td class="num">0.9.0</td><td class="num">21 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">9.5/10</td><td class="num">0</td><td class="num">not measured</td><td><a href="https://www.youtube.com/watch?v=M-QbzRAQcp0" rel="noopener">Watch</a></td></tr>
+<tr><td><a href="#wordcraft">WordCraft</a></td><td class="num">0.11.0</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">retest</td><td class="num">0</td><td class="num">0</td><td>–</td></tr>
+<tr><td><a href="#photocraft">PhotoCraft</a></td><td class="num">0.9.0</td><td class="num">17 Oct 2026</td><td>Ubuntu lab PC</td><td class="num">7/10</td><td class="num">0</td><td class="num">not measured</td><td><a href="https://www.youtube.com/watch?v=yradgS_aGLQ" rel="noopener">Watch</a></td></tr>
+<tr><td><a href="#gridcraft">GridCraft</a></td><td class="num">0.12.1</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">5.5/8</td><td class="num">0</td><td class="num">0</td><td>–</td></tr>
+<tr><td><a href="#deckcraft">DeckCraft</a></td><td class="num">0.11.1</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">3/3</td><td class="num">0</td><td class="num">0</td><td>–</td></tr>
+<tr><td>Adobe Acrobat Pro</td><td class="num">26.002.22031</td><td class="num">20 Oct 2026</td><td>Windows 11 lab PC</td><td class="num">10/10</td><td class="num">23 hosts</td><td class="num">7 hosts</td><td>–</td></tr>
+<tr><td>Microsoft Word for the web</td><td class="num">build 20261019.4</td><td class="num">21 Oct 2026</td><td>Windows 11 lab PC, browser</td><td class="num">9.5/10</td><td class="num">64 hosts</td><td class="num">not measured</td><td>–</td></tr>
+<tr><td>Adobe Photoshop</td><td class="num">–</td><td class="num">coming</td><td>–</td><td class="num">not tested</td><td class="num">not tested</td><td class="num">not tested</td><td>–</td></tr>
+<tr><td>Microsoft Excel for the web</td><td class="num">build seen 26 Oct 2026</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC, browser</td><td class="num">6.5/8</td><td class="num">118 hosts</td><td class="num">not measured</td><td>–</td></tr>
+<tr><td>Microsoft PowerPoint for the web</td><td class="num">build seen 26 Oct 2026</td><td class="num">26 Oct 2026</td><td>Windows 11 lab PC, browser</td><td class="num">2.5/3</td><td class="num">not measured</td><td class="num">not measured</td><td>–</td></tr></tbody>
+        </table>
+      </div>
+      <details id="conn-log">
+        <summary>Connection log: every host on the map (40 rows)</summary>
+        <p id="conn-log-summary" class="map-note">Hosts contacted by each app's own processes in our captures. Encrypted traffic: we list who was contacted and how much was sent, not what was inside.</p>
+        <div class="tbl-wrap">
+          <table>
+            <caption class="sr-only">Connection log for the lab network map</caption>
+            <thead><tr><th scope="col">App and version</th><th scope="col">When</th><th scope="col">Process</th><th scope="col">Host</th><th scope="col">Requests / data</th><th scope="col">Note</th></tr></thead>
+            <tbody><tr><td>PdfCraft <span class="num">0.14.0</span><br><span class="num">26 Oct 2026</span></td><td>While you work</td><td>PdfCraft</td><td class="host">api.github.com</td><td class="num">1 requests</td><td>Only when I clicked Help &gt; Check for updates</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">acroipm2.adobe.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">aepxlg.adobe.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">cai-signer.adobe.io</td><td class="num">–</td><td>Content Credentials</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">cc-api-data.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">cctypekit.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">contentcredentials.org</td><td class="num">–</td><td>Content Credentials</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">faster.typekit.net</td><td class="num">9.3 MB received</td><td>Fonts</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">files-asr.acrobat.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">ic.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">ims-na1.adobelogin.com</td><td class="num">–</td><td>Sign-in</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">raw.githubusercontent.com</td><td class="num">–</td><td>Content Credentials</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">udps.adobe.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat</td><td class="host">verify.contentauthenticity.org</td><td class="num">–</td><td>Content Credentials</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">adobe.demdex.net</td><td class="num">–</td><td>Adobe audience platform</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">sstats.adobe.com</td><td class="num">–</td><td>Analytics</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">fillsign.acrobat.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">createpdf-asr.acrobat.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">cloud-asr.acrobat.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat web view</td><td class="host">hbc.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat AI Assistant</td><td class="host">dc-api-v2.adobe.io</td><td class="num">2 KB sent</td><td>Summary of a 3.8 KB contract</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat AI Assistant</td><td class="host">dc-genai-content-platform-v2-jpn3.adobe.io</td><td class="num">8.6 KB sent</td><td>Summary of a 3.8 KB contract</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat AI Assistant</td><td class="host">senseicore-an1.adobe.io</td><td class="num">18.6 KB sent</td><td>Summary of a 3.8 KB contract</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>While you work</td><td>Acrobat AI Assistant</td><td class="host">dc-genai-access-provisioning-api.adobe.io</td><td class="num">1.8 KB sent</td><td>Summary of a 3.8 KB contract</td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AcroTray</td><td class="host">cc-api-data.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AcroTray</td><td class="host">ims-na1.adobelogin.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AcroTray</td><td class="host">ims-prod06.adobelogin.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AcroTray</td><td class="host">p13n.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AcroTray</td><td class="host">lcs-cops.adobe.io</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>AdobeCollabSync</td><td class="host">aepxlg.adobe.com</td><td class="num">–</td><td></td></tr>
+<tr><td>Acrobat Pro <span class="num">26.002.22031</span><br><span class="num">20 Oct 2026</span></td><td>After you close it</td><td>LogTransport2</td><td class="host">44.219.221.77</td><td class="num">–</td><td>Adobe&#x27;s log uploader, port 443</td></tr>
+<tr><td>Word for the web <span class="num">build 20261019.4</span><br><span class="num">21 Oct 2026</span></td><td>While you work</td><td>Word for the web</td><td class="host">word-edit.officeapps.live.com</td><td class="num">–</td><td>Typed text sent as you type</td></tr>
+<tr><td>Word for the web <span class="num">build 20261019.4</span><br><span class="num">21 Oct 2026</span></td><td>While you work</td><td>Word for the web</td><td class="host">graph.microsoft.com</td><td class="num">7 requests</td><td>Each opened file uploaded to OneDrive</td></tr>
+<tr><td>Word for the web <span class="num">build 20261019.4</span><br><span class="num">21 Oct 2026</span></td><td>While you work</td><td>Word for the web</td><td class="host">browser.events.data.microsoft.com</td><td class="num">449 requests · 8.9 MB sent</td><td>Diagnostic events</td></tr>
+<tr><td>Word for the web <span class="num">build 20261019.4</span><br><span class="num">21 Oct 2026</span></td><td>While you work</td><td>Word for the web</td><td class="host">eu-office.events.data.microsoft.com</td><td class="num">54 requests · 1.2 MB sent</td><td>Diagnostic events</td></tr>
+<tr><td>Word for the web <span class="num">build 20261019.4</span><br><span class="num">21 Oct 2026</span></td><td>While you work</td><td>Word for the web</td><td class="host">euc-word-telemetry.officeapps.live.com</td><td class="num">51 requests · 0.67 MB sent</td><td>Diagnostic events</td></tr>
+<tr><td>Excel for the web <span class="num">build seen 26 Oct 2026</span><br><span class="num">26 Oct 2026</span></td><td>While you work</td><td>Excel for the web</td><td class="host">excel.officeapps.live.com</td><td class="num">1227 requests</td><td>Typed text sent as you type</td></tr>
+<tr><td>Excel for the web <span class="num">build seen 26 Oct 2026</span><br><span class="num">26 Oct 2026</span></td><td>While you work</td><td>Excel for the web</td><td class="host">onedrive.live.com</td><td class="num">165 requests · 9.6 MB sent</td><td>Files stored in OneDrive</td></tr>
+<tr><td>Excel for the web <span class="num">build seen 26 Oct 2026</span><br><span class="num">26 Oct 2026</span></td><td>While you work</td><td>Excel for the web</td><td class="host">excel-telemetry.officeapps.live.com</td><td class="num">806 requests · 30 MB sent</td><td>Diagnostic events</td></tr>
+<tr><td>Excel for the web <span class="num">build seen 26 Oct 2026</span><br><span class="num">26 Oct 2026</span></td><td>While you work</td><td>Excel for the web</td><td class="host">browser.events.data.microsoft.com</td><td class="num">636 requests · 28.1 MB sent</td><td>Diagnostic events</td></tr></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="method" aria-labelledby="method-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="label">How we test</div><h2 id="method-title">Method</h2></div>
+        <p>A result covers only the version and the date shown. A newer version can behave differently.</p>
+      </div>
+      <div class="method">
+        <div>
+          <div class="label">Score</div>
+          <h3>Same jobs, rules written first</h3>
+          <p>Each job is graded PASS 1, PARTIAL 0.5 or FAIL 0. The grading rules for every job are written down before the first app runs it, and both apps get the same jobs and the same files.</p>
+          <div class="scale"><span class="pill pass">Pass 1</span><span class="pill partial">Partial 0.5</span><span class="pill fail">Fail 0</span></div>
+        </div>
+        <div>
+          <div class="label">Connections</div>
+          <h3>Counted per program</h3>
+          <p>Connections are network connections made by the app&#x27;s own processes during the test, captured on the lab PC (packet capture plus the operating system&#x27;s per-program connection log).</p>
+          <p>Paid apps run with default settings and the account they ask for. Web apps are measured in the browser session we used for the jobs.</p>
+        </div>
+        <div>
+          <div class="label">Scope</div>
+          <h3>One version, one date</h3>
+          <p>Developers ship fixes, and Microsoft and Adobe change their services. A result says what we measured on that version, on that date, on our lab PC. It is not a verdict on any company.</p>
+          <p>Each result links to the video that shows the test.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>By <b>The Hardened Stack</b> · <a href="https://www.youtube.com/channel/UCg95mVk6Es290vh_YB7RZUg" rel="noopener">YouTube</a></span>
+    <span><a href="feed.xml">New results feed (RSS)</a> · Code MIT · Data CC BY 4.0 · Updated <span class="num">2026-10-26</span></span>
+  </div>
+</footer>
+
+</body>
+</html>
